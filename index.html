@@ -435,7 +435,7 @@
     animation:soldierWarnIn .35s steps(4,end) both;
   }
   #soldier-warning.hidden { display:none !important; }
-  #spike-warning {
+  #spike-warning 
     position:fixed; left:50%; top:30%; transform:translateX(-50%); z-index:40;
     width:min(92vw,780px); text-align:center; padding:14px 18px;
     font-family:'Press Start 2P',monospace; font-size:clamp(10px,2.5vw,19px);
@@ -5082,7 +5082,7 @@ function ensureMP(){
   if(mp.ws && (mp.ws.readyState===0||mp.ws.readyState===1)) return;
   const status=document.getElementById('server-status'); if(status)status.textContent='CONECTANDO AO SERVIDOR...';
   try{
-    mp.ws = new WebSocket('wss://willow-well-to-do-butterfly.abasthan.app');
+    mp.ws = new WebSocket(''wss://sticksolsnew-production.up.railway.app'');
     mp.ws.onopen=()=>{ mp.connected=true; sendMP({type:'hello',name:mpName(),charId:saveData.chosenChar||'rui'}); renderServerList(); if(mp.heartbeat)clearInterval(mp.heartbeat); mp.heartbeat=setInterval(()=>sendMP({type:'ping'}),15000); };
     mp.ws.onclose=()=>{ mp.connected=false; if(mp.inLobby){const st=document.getElementById('lobby-status');if(st)st.textContent='CONEXÃO PERDIDA. TENTE NOVAMENTE.';} else {const st=document.getElementById('server-status');if(st)st.textContent='SERVIDOR OFFLINE — ABRA O server.js E TENTE NOVAMENTE.';} };
     mp.ws.onerror=()=>{ const st=document.getElementById('server-status');if(st)st.textContent='NÃO FOI POSSÍVEL CONECTAR. O SERVIDOR PRECISA ESTAR ONLINE.'; };
