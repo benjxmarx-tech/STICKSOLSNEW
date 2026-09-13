@@ -4,7 +4,7 @@ const path = require('path');
 const crypto = require('crypto');
 const WebSocket = require('ws');
 
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || 3000;
 const GAME = path.join(__dirname, 'Stickman_Souls_Multiplayer.html');
 const rooms = new Map();
 
